@@ -6,26 +6,30 @@ import java.util.ArrayList;
 public class Shop {
 
     private ArrayList<ISell> stock;
-    private double till;
+    private double netProfit;
 
-    public Shop(ArrayList<ISell> stock, double till) {
+    public Shop(ArrayList<ISell> stock, double netProfit) {
         this.stock = stock;
-        this.till = till;
+        this.netProfit = netProfit;
     }
 
     public int getInventoryArrayListSize() {
         return stock.size();
     }
 
-    public double getTill() {
-        return till;
+    public double getNetProfit() {
+        return netProfit;
     }
 
-    public void buyItem(){
-
+    public void buyItem(ISell item){
+        stock.add(item);
     }
 
-    public void sellItem(ISell item, int index){
 
+    public void sellItem(ISell item){
+        if (stock.contains(item)){
+            stock.remove(item);
+            netProfit += item.calculateMarkup();
+        }
     }
 }

@@ -33,7 +33,7 @@ public class ShopTest {
         inventory.add(piano);
         inventory.add(piano);
 
-        shop = new Shop(inventory, 1000.00);
+        shop = new Shop(inventory, 0.00);
     }
 
     @Test
@@ -43,6 +43,23 @@ public class ShopTest {
 
     @Test
     public void shopHasTill(){
-        assertEquals(1000.0, shop.getTill(),0.01);
+        assertEquals(1000.0, shop.getNetProfit(),0.01);
+    }
+
+    @Test
+    public void shopCanBuyItem(){
+        shop.buyItem(guitar);
+        assertEquals(0.0, shop.getNetProfit(), 0.01);
+        assertEquals(6, shop.getInventoryArrayListSize());
+    }
+
+    @Test
+    public void shopCanSellItem(){
+        shop.sellItem(guitar);
+        shop.sellItem(guitar);
+        shop.sellItem(guitar);
+        assertEquals(3, shop.getInventoryArrayListSize());
+        assertEquals(40.0, shop.getNetProfit(), 0.01);
+
     }
 }
