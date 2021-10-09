@@ -20,4 +20,8 @@ public abstract class Instrument extends Inventory implements IPlay{
     public String getMaterial() {
         return this.material;
     }
+
+    public String playMusic(){
+        return this.instrumentType.getSound();
+    }
 }
