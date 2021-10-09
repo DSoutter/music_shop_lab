@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class ShopTest {
 
     Shop shop;
-    ArrayList<ISell> inventory;
+    ArrayList<ISell> stock;
     Accessory drumSticks;
     Piano piano;
     Guitar guitar;
@@ -22,22 +22,22 @@ public class ShopTest {
 
     @Before
     public void before(){
-        inventory = new ArrayList<>();
+        stock = new ArrayList<>();
         drumSticks = new Accessory(10.0, 14.99, "Drum Sticks", "Used for the drums");
         guitar = new Guitar(80.00, 100.00, Type.STRING, "Wood", 6);
         piano = new Piano(400.00, 560.00, Type.PIANO, "Wood and metal and others", 88);
 
-        inventory.add(drumSticks);
-        inventory.add(guitar);
-        inventory.add(guitar);
-        inventory.add(piano);
-        inventory.add(piano);
+        stock.add(drumSticks);
+        stock.add(guitar);
+        stock.add(guitar);
+        stock.add(piano);
+        stock.add(piano);
 
-        shop = new Shop(inventory, 0.00);
+        shop = new Shop(stock, 0.00);
     }
 
     @Test
-    public void inventoryHasSize5(){
+    public void stockHasSize5(){
         assertEquals(5, shop.getInventoryArrayListSize());
     }
 
@@ -61,5 +61,10 @@ public class ShopTest {
         assertEquals(3, shop.getInventoryArrayListSize());
         assertEquals(40.0, shop.getNetProfit(), 0.01);
 
+    }
+
+    @Test
+    public void shopHasPotentialReturns(){
+        assertEquals(364.99,shop.potentialReturns(),0.01);
     }
 }

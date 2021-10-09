@@ -32,4 +32,12 @@ public class Shop {
             netProfit += item.calculateMarkup();
         }
     }
+
+    public double potentialReturns(){
+        double totalReturns = 0;
+        for (int index = 0; index < getInventoryArrayListSize(); index++){
+            totalReturns += stock.get(index).calculateMarkup();
+        }
+        return totalReturns;
+    }
 }
