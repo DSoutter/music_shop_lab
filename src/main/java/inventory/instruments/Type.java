@@ -2,7 +2,7 @@ package inventory.instruments;
 
 public enum Type {
 
-    GUITAR("Strum"),
+    STRING("Strum"),
     PIANO("Clang"),
     DRUM("Badum Tss"),
     WIND("whhhhh");
