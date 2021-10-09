@@ -5,14 +5,27 @@ import java.util.ArrayList;
 
 public class Shop {
 
-    private ArrayList<ISell> inventoryArrayList;
+    private ArrayList<ISell> stock;
+    private double till;
 
-    public Shop(ArrayList<ISell> inventoryArrayList) {
-        this.inventoryArrayList = inventoryArrayList;
+    public Shop(ArrayList<ISell> stock, double till) {
+        this.stock = stock;
+        this.till = till;
     }
 
     public int getInventoryArrayListSize() {
-        return inventoryArrayList.size();
+        return stock.size();
     }
 
+    public double getTill() {
+        return till;
+    }
+
+    public void buyItem(){
+
+    }
+
+    public void sellItem(ISell item, int index){
+
+    }
 }

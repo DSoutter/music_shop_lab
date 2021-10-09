@@ -33,11 +33,16 @@ public class ShopTest {
         inventory.add(piano);
         inventory.add(piano);
 
-        shop = new Shop(inventory);
+        shop = new Shop(inventory, 1000.00);
     }
 
     @Test
     public void inventoryHasSize5(){
         assertEquals(5, shop.getInventoryArrayListSize());
+    }
+
+    @Test
+    public void shopHasTill(){
+        assertEquals(1000.0, shop.getTill(),0.01);
     }
 }
