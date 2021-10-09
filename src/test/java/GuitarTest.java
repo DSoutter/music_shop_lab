@@ -22,4 +22,19 @@ public class GuitarTest {
     public void guitarMakesNoise(){
         assertEquals("Strum", guitar.playMusic());
     }
+
+    @Test
+    public void guitarHasWholesalePrice(){
+        assertEquals(80.0, guitar.getWholesalePrice(), 0.01);
+    }
+
+    @Test
+    public void guitarHasSalePrice(){
+        assertEquals(100.00, guitar.getSalePrice(),0.01);
+    }
+
+    @Test
+    public void guitarHasMaterial(){
+        assertEquals("Wood", guitar.getMaterial());
+    }
 }
