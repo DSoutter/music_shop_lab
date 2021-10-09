@@ -17,4 +17,8 @@ public abstract class Inventory implements ISell{
     public double getSalePrice() {
         return this.salePrice;
     }
+
+    public double calculateMarkup(){
+        return this.salePrice - this.wholesalePrice;
+    }
 }
